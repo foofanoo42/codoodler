@@ -61,9 +61,16 @@
 			channel: channel,
 			message: data
 		});
+		console.log("sending stuff to pubnub");
+		testdraw();
      }
 
     /* Draw on canvas */
+	
+	function testdraw(){
+		
+		ctx.fillText('Hello world', 200, 200);
+	}
 
     function drawOnCanvas(color, plots) {
     	ctx.strokeStyle = color;
@@ -108,7 +115,7 @@
     	plots.push({x: (x << 0), y: (y << 0)}); // round numbers for touch screens
 
     	drawOnCanvas(color, plots);
-		ctx.fillText('Hello world', 100, 100);
+		//ctx.fillText('Hello world', 100, 100);
 		
 	}
 	
@@ -116,8 +123,7 @@
 	  	e.preventDefault();
 	  	
 		//isActive = true;
-		
-		//turning off active
+		//turning off drawing from working this way
 		
 	}
 	
