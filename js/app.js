@@ -47,7 +47,7 @@
 		callback: drawFromStream,
 		presence: function(m){
 			if(m.occupancy > 1){
-				document.getElementById('unit').textContent = 'doodlers';
+				document.getElementById('unit').textContent = 'connected';
 			}
    			document.getElementById('occupancy').textContent = m.occupancy;
    			var p = document.getElementById('occupancy').parentNode;
@@ -112,9 +112,9 @@
 	
 	function startDraw(e) {
 	  	e.preventDefault();
-	  	isActive = true;
+	  	//isActive = true;
 		
-		
+		//turning off active
 		
 	}
 	
