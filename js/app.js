@@ -8,6 +8,7 @@
 	canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
 	canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
 	 
+	 
 	ctx.strokeStyle = color;
 	ctx.lineWidth = '3';
 	ctx.lineCap = ctx.lineJoin = 'round';
