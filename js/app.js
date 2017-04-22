@@ -32,7 +32,7 @@
 
 	/* PubNub */
 
-	var channel = 'draw';
+	var channel = 'somethingelse';
 
 	var pubnub = PUBNUB.init({
 		publish_key     : 'pub-c-2e42a4a0-0bde-4e21-8596-bc786a8e013a',
