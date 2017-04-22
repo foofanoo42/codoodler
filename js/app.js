@@ -108,11 +108,17 @@
 	function startDraw(e) {
 	  	e.preventDefault();
 	  	isActive = true;
+		
+		//added. don't start isactive at all
+		isActive = false;
+		
 	}
 	
 	function endDraw(e) {
 	  	e.preventDefault();
 	  	isActive = false;
+	  
+		ctx.fillText('Hello world', 50, 100)
 	  
 	  	publish({
 	  		color: color,
