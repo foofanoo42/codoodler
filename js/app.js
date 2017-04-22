@@ -103,6 +103,7 @@
     	plots.push({x: (x << 0), y: (y << 0)}); // round numbers for touch screens
 
     	drawOnCanvas(color, plots);
+		ctx.fillText('Hello world', 50, 100)
 	}
 	
 	function startDraw(e) {
@@ -118,8 +119,7 @@
 	  	e.preventDefault();
 	  	isActive = false;
 	  
-		ctx.fillText('Hello world', 50, 100)
-	  
+			  
 	  	publish({
 	  		color: color,
 	  		plots: plots
