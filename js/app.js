@@ -74,14 +74,14 @@
 	    	ctx.lineTo(plots[i].x, plots[i].y);
 	    }
 	    ctx.stroke();
-		
+		ctx.fillText('Hello world', 200, 200);
 		
     }
 
     function drawFromStream(message) {
 		if(!message || message.plots.length < 1) return;
 		drawOnCanvas(message.color, message.plots);
-		ctx.fillText('Hello world', 50, 100);
+		
     }
     
     // Get Older and Past Drawings!
