@@ -79,7 +79,7 @@
     }
 
     function drawFromStream(message) {
-		ctx.fillText('Hello world', 200, 200);
+		
 		if(!message || message.plots.length < 1) return;
 		drawOnCanvas(message.color, message.plots);
 		
@@ -113,7 +113,8 @@
 	
 	function startDraw(e) {
 	  	e.preventDefault();
-	  	//isActive = true;
+	  	ctx.fillText('Hello world', 200, 200);
+		//isActive = true;
 		
 		//turning off active
 		
