@@ -73,11 +73,14 @@
 	    	ctx.lineTo(plots[i].x, plots[i].y);
 	    }
 	    ctx.stroke();
+		
+		
     }
 
     function drawFromStream(message) {
 		if(!message || message.plots.length < 1) return;
 		drawOnCanvas(message.color, message.plots);
+		ctx.fillText('Hello world', 50, 100)
     }
     
     // Get Older and Past Drawings!
@@ -103,15 +106,14 @@
     	plots.push({x: (x << 0), y: (y << 0)}); // round numbers for touch screens
 
     	drawOnCanvas(color, plots);
-		ctx.fillText('Hello world', 50, 100)
+		
 	}
 	
 	function startDraw(e) {
 	  	e.preventDefault();
 	  	isActive = true;
 		
-		//added. don't start isactive at all
-		isActive = false;
+		
 		
 	}
 	
