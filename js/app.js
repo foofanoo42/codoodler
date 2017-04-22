@@ -35,8 +35,8 @@
 	var channel = 'draw';
 
 	var pubnub = PUBNUB.init({
-		publish_key     : 'pub-c-156a6d5f-22bd-4a13-848d-b5b4d4b36695',
-		subscribe_key   : 'sub-c-f762fb78-2724-11e4-a4df-02ee2ddab7fe',
+		publish_key     : 'pub-c-2e42a4a0-0bde-4e21-8596-bc786a8e013a',
+		subscribe_key   : 'sub-c-9cc1c084-2715-11e7-894d-0619f8945a4f',
 		leave_on_unload : true,
 		ssl		: document.location.protocol === "https:"
 	});
