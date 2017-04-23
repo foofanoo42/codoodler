@@ -38,6 +38,7 @@
 	var pubnub = PUBNUB.init({
 		publish_key     : 'pub-c-2e42a4a0-0bde-4e21-8596-bc786a8e013a',
 		subscribe_key   : 'sub-c-9cc1c084-2715-11e7-894d-0619f8945a4f',
+						   
 		//uuid: "myUniqueUUID",//added , may be unneccesary
 		leave_on_unload : true,
 		ssl		: document.location.protocol === "https:"
@@ -46,13 +47,14 @@
 	pubnub.subscribe({
 		channel: channel,
 		callback: drawFromStream,
+		withPresence: true,
 		presence: function(m){
 			if(m.occupancy > 1){
 				document.getElementById('unit').textContent = 'connected';
 			}
    			document.getElementById('occupancy').textContent = m.occupancy;
    			
-			//console.log(m.uuid);
+			console.log(m.occupancy);
 			var p = document.getElementById('occupancy').parentNode;
    			p.classList.add('anim');
    			p.addEventListener('transitionend', function(){p.classList.remove('anim');}, false);
