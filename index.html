@@ -9,6 +9,12 @@
 	<meta name="author" content="Foofanoo">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css">
+	
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	
+	<script src="//cdn.pubnub.com/pubnub-3.14.1.min.js"></script>
+	<script src="js/app.js"></script>
+	
 </head>
 
 <body>
@@ -23,31 +29,289 @@
 		</div>
 	</header>
 
-	<section id="main">
-		<canvas id="drawCanvas" width="300" height="300">Canvas is not supported on this browser!</canvas>
+	
+	
+	<div id="everything">
+		<h1>Scores of connected typers</h1>
+		<h2>Top 10 of how many</h2>	
+		<div id="chart"></div>
+		
+	</div>
 
-		<section id="colorSwatch">
-			<input type="radio" name="color" id="color01" data-color="gold" checked><label for="color01"></label> 
-			<input type="radio" name="color" id="color02" data-color="darkorange">	<label for="color02"></label>  
-			<input type="radio" name="color" id="color03" data-color="navy">		<label for="color03"></label>  
-			<input type="radio" name="color" id="color04" data-color="yellowgreen">	<label for="color04"></label>  
-			<input type="radio" name="color" id="color05" data-color="firebrick">	<label for="color05"></label>  
-			<input type="radio" name="color" id="color06" data-color="powderblue">	<label for="color06"></label> 
-		</section>
-	</section>
 
-	<footer>
-		<!--deleted the footer links so Audrey didn't accidentally click them on the phone.-->
-	</footer>
+	<script>
 
+//updatingBarChart.js
+
+var currentData = [{key: "blah", value:50}, {key: "blah42", value:100},{key: "blah74", value:100},
+				   {key: "blah2", value:50}, {key: "blah52", value:100},{key: "blah74", value:100},
+				   {key: "blah3", value:50}, {key: "blah62", value:100},{key: "bla77h4", value:0}];
+				   
+				   
+//var chart = document.getElementById('chart');
+
+//chart.addEventListener(onClick, increment(), false);
+
+
+var increment = function(){
+
+	var changedData = currentData[8];
+	var newValue = changedData.value + 3;
+	changedData.value = newValue;
+	
+		//currentData[2].push({key: newValue, value: newValue});
+	currentData[8] = changedData;
+	
+	
+	//by making the values have the same key, they format nicely down to from 10
+
+}
+
+				   
+				   
+var setup = function(targetID){
+	//Set size of svg element and chart
+	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+		width = 600 - margin.left - margin.right,
+		height = 400 - margin.top - margin.bottom,
+		categoryIndent = 4*15 + 5,
+		defaultBarWidth = 2000;
+
+	//Set up scales
+	var x = d3.scale.linear()
+	  .domain([0,defaultBarWidth])
+	  .range([0,width]);
+	var y = d3.scale.ordinal()
+	  .rangeRoundBands([0, height], 0.1, 0);
+
+	//Create SVG element
+	d3.select(targetID).selectAll("svg").remove()
+	var svg = d3.select(targetID).append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+	
+	svg.on("click", function() {
+          increment();
+		  //console.log("clicked mouse");
+        })
+	
+	//Package and export settings
+	var settings = {
+	  margin:margin, width:width, height:height, categoryIndent:categoryIndent,
+	  svg:svg, x:x, y:y
+	}
+	return settings;
+}
+
+var redrawChart = function(targetID, newdata) {
+
+	//Import settings
+	var margin=settings.margin, width=settings.width, height=settings.height, categoryIndent=settings.categoryIndent, 
+	svg=settings.svg, x=settings.x, y=settings.y;
+
+	//Reset domains
+	y.domain(newdata.sort(function(a,b){
+	  return b.value - a.value;
+	})
+	  .map(function(d) { return d.key; }));
+	var barmax = d3.max(newdata, function(e) {
+	  return e.value;
+	});
+	x.domain([0,barmax]);
+
+	/////////
+	//ENTER//
+	/////////
+
+	//Bind new data to chart rows 
+
+	//Create chart row and move to below the bottom of the chart
+	var chartRow = svg.selectAll("g.chartRow")
+	  .data(newdata, function(d){ return d.key});
+	var newRow = chartRow
+	  .enter()
+	  .append("g")
+	  .attr("class", "chartRow")
+	  .attr("transform", "translate(0," + height + margin.top + margin.bottom + ")");
+
+	//Add rectangles
+	newRow.insert("rect")
+	  .attr("class","bar")
+	  .attr("x", 0)
+	  .attr("opacity",0)
+	  .attr("height", y.rangeBand())
+	  .attr("width", function(d) { return x(d.value);}) 
+
+	//Add value labels
+	newRow.append("text")
+	  .attr("class","label")
+	  .attr("y", y.rangeBand()/2)
+	  .attr("x",0)
+	  .attr("opacity",0)
+	  .attr("dy",".35em")
+	  .attr("dx","0.5em")
+	  .text(function(d){return d.value;}); 
+	
+	//Add Headlines
+	newRow.append("text")
+	  .attr("class","category")
+	  .attr("text-overflow","ellipsis")
+	  .attr("y", y.rangeBand()/2)
+	  .attr("x",categoryIndent)
+	  .attr("opacity",0)
+	  .attr("dy",".35em")
+	  .attr("dx","0.5em")
+	  .text(function(d){return d.key});
+
+
+	//////////
+	//UPDATE//
+	//////////
+	
+	//Update bar widths
+	chartRow.select(".bar").transition()
+	  .duration(300)
+	  .attr("width", function(d) { return x(d.value);})
+	  .attr("opacity",1);
+
+	//Update data labels
+	chartRow.select(".label").transition()
+	  .duration(300)
+	  .attr("opacity",1)
+	  .tween("text", function(d) { 
+		var i = d3.interpolate(+this.textContent.replace(/\,/g,''), +d.value);
+		return function(t) {
+		  this.textContent = Math.round(i(t));
+		};
+	  });
+
+	//Fade in categories
+	chartRow.select(".category").transition()
+	  .duration(300)
+	  .attr("opacity",1);
+
+
+	////////
+	//EXIT//
+	////////
+
+	//Fade out and remove exit elements
+	chartRow.exit().transition()
+	  .style("opacity","0")
+	  .attr("transform", "translate(0," + (height + margin.top + margin.bottom) + ")")
+	  .remove();
+
+
+	////////////////
+	//REORDER ROWS//
+	////////////////
+
+	var delay = function(d, i) { return 200 + i * 30; };
+
+	chartRow.transition()
+		.delay(delay)
+		.duration(900)
+		.attr("transform", function(d){ return "translate(0," + y(d.key) + ")"; });
+};
+
+
+
+//Pulls data
+//Since our data is fake, adds some random changes to simulate a data stream.
+//Uses a callback because d3.json loading is asynchronous
+
+var dontPullData = function(settings){
+	
+	//var newValue = currentData.length * 30;
+	
+	var changedData = currentData[2];
+	var newValue = changedData.value + 10;
+	changedData.value = newValue;
+	
+		//currentData[2].push({key: newValue, value: newValue});
+	currentData[2] = changedData;
+	
+	
+	
+	//format and send the currentData to the graph logic
+	var newData = currentData;
+		
+		
+		
+		newData = formatData(currentData);
+		
+		//console.log(newData.length);
+		
+		
+		redrawChart(settings,newData);
+}
+/*
+var pullData = function(settings,callback){
+	d3.json("fakeData.json", function (err, data){
+		if (err) return console.warn(err);
+
+		var newData = data;
+		data.forEach(function(d,i){
+			var newValue = d.value + Math.floor((Math.random()*10) - 5)
+			newData[i].value = newValue <= 0 ? 10 : newValue
+			
+		})
+
+		
+		
+		//newData = formatData(newData);
+		var newValue = currentData.length * 30;
+		
+		currentData.push({key: newValue, value: newValue});
+		newData = currentData;
+		
+		newData = formatData(currentData);
+		
+		console.log(newData.length);
+		callback(settings,newData);
+	})
+}
+*/
+
+
+//Sort data in descending order and take the top 10 values
+var formatData = function(data){
+    return data.sort(function (a, b) {
+        return b.value - a.value;
+      })
+	  .slice(0, 10);
+}
+
+//I like to call it what it does
+var redraw = function(settings){
+	dontPullData(settings);
+}
+
+//setup (includes first draw)
+var settings = setup('#chart');
+redraw(settings)
+
+//Repeat every 3 seconds
+setInterval(function(){
+	redraw(settings)
+}, 3000);
+
+	</script>
+	
+	
+	
+	
+	
 	
 	<script>
 		// For history() demo, please view history.html.
 		var drawHistory = false;
 	</script>
 
-	<script src="//cdn.pubnub.com/pubnub-3.14.1.min.js"></script>
-	<script src="js/app.js"></script>
+	
 
 
 </body>
