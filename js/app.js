@@ -74,7 +74,9 @@
 	
 	function testdraw(){
 		
-		ctx.fillText('Hello world', 200, 200);
+		increment();
+		console.log("incrementing");
+		//ctx.fillText('Hello world', 20, 0);
 	}
 
     function drawOnCanvas(color, plots) {
