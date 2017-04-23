@@ -66,6 +66,8 @@
 			channel: channel,
 			message: data
 		});
+		
+		
 		//console.log("sending stuff to pubnub");
 		increment();
 		console.log("incrementing");
