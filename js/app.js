@@ -66,16 +66,17 @@
 			channel: channel,
 			message: data
 		});
-		console.log("sending stuff to pubnub");
-		testdraw();
+		//console.log("sending stuff to pubnub");
+		increment();
+		console.log("incrementing");
+		
+		//testdraw();
      }
 
     /* Draw on canvas */
 	
 	function testdraw(){
 		
-		increment();
-		console.log("incrementing");
 		//ctx.fillText('Hello world', 20, 0);
 	}
 
