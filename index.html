@@ -27,6 +27,11 @@
 			<span id="occupancy">0</span>
 			<span id="unit">connected</span>
 		</div>
+		<input type="text" id="myText" value="Some text...">
+
+		<p>Click the "Try it" button to get the text in the text field.</p>
+
+		<button onclick="addUserName()">OK</button>
 	</header>
 		
 	
@@ -67,6 +72,18 @@ var currentData = [{key: "blah", value:50}, {key: "blah42", value:100},{key: "bl
 
 //chart.addEventListener(onClick, increment(), false);
 
+var addUserName(){
+	var changedData = currentData[8];
+	
+	var x = document.getElementById("myText").value;
+	
+	var newValue = changedData.key = x;
+	changedData.value = newValue;
+	
+		//currentData[2].push({key: newValue, value: newValue});
+	currentData[8] = changedData;
+			
+}
 
 var increment = function(){
 
