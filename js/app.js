@@ -5,10 +5,13 @@
 	var ctx = canvas.getContext('2d');
 	var color = document.querySelector(':checked').getAttribute('data-color');
 
-	canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
-	canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
-	 
-	 
+	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
+	//canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
+	canvas.width = 200;
+	canvas.height = 100;
+		
+	ctx.arc(95,50,40,0,2*Math.PI); 
+	
 	ctx.strokeStyle = color;
 	ctx.lineWidth = '3';
 	ctx.lineCap = ctx.lineJoin = 'round';
