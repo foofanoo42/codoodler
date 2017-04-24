@@ -75,10 +75,10 @@ var currentData = [{key: "blah", value:50}, {key: "blah42", value:100},{key: "bl
 var addUserName = function(){
 	var changedData = currentData[8];
 	
-	var x = document.getElementById("myText").value;
+	var usernamex = document.getElementById("myText").value;
 	
-	var newValue = changedData.key = x;
-	changedData.value = newValue;
+	
+	changedData.key = usernamex.toString();
 	
 		//currentData[2].push({key: newValue, value: newValue});
 	currentData[8] = changedData;
