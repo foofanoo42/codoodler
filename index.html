@@ -63,27 +63,25 @@
 
 //updatingBarChart.js
 
-var currentData = [{key: "blah", value:50}, {key: "blah42", value:100},{key: "blah74", value:100},
-				   {key: "blah2", value:50}, {key: "blah52", value:100},{key: "blah74", value:100},
-				   {key: "blah3", value:50}, {key: "blah62", value:100},{key: "bla77h4", value:0}];
-				   
-				   
-//var chart = document.getElementById('chart');
+var currentData = [{key: "blah1", value:50, name:" "}, {key: "blah2", value:100,name:" "},{key: "blah3", value:100, name:" "},
+				  {key: "blah4", value:50, name:" "}, {key: "blah5", value:100,name:" "},{key: "blah6", value:100, name:" "},
+				  {key: "blah7", value:50, name:" "}, {key: "blah8", value:100,name:" "},{key: "blah9", value:0, name:" "},
+				  {key: "blah10", value:0, name:" "}];
 
-//chart.addEventListener(onClick, increment(), false);
 
-var addUserName = function(){
+
+
+var changeName = function(){
+
 	var changedData = currentData[8];
 	
-	var usernamex = document.getElementById("myText").value;
+	changedData.name = "Fighting";
 	
-	var newValue = usernamex;
-	changedData.name = newValue;
-	
-		//currentData[2].push({key: newValue, value: newValue});
 	currentData[8] = changedData;
-			
+	//console.log (currentData[8].name);
+	
 }
+
 
 var increment = function(){
 
@@ -126,7 +124,7 @@ var setup = function(targetID){
 	
 	
 	svg.on("click", function() {
-          increment();
+          changeName();
 		  //console.log("clicked mouse");
         })
 	
@@ -196,7 +194,7 @@ var redrawChart = function(targetID, newdata) {
 	  .attr("opacity",0)
 	  .attr("dy",".35em")
 	  .attr("dx","0.5em")
-	  .text(function(d){return d.key});
+	  .text(function(d){return d.name});//use names for category label instead of key as in example
 
 
 	//////////
@@ -219,6 +217,9 @@ var redrawChart = function(targetID, newdata) {
 		  this.textContent = Math.round(i(t));
 		};
 	  });
+	  
+	//Update data names each update *******************
+	chartRow.select(".category").text(function(d){return d.name});
 
 	//Fade in categories
 	chartRow.select(".category").transition()
