@@ -175,7 +175,7 @@
 		publish ({
 			name: changedData,
 			score: 0
-		})
+		});
 		
 		
 	}
@@ -187,7 +187,7 @@
 		publish ({
 			name: changedData,
 			score: 5
-		})
+		});
 	}
 	
 	
