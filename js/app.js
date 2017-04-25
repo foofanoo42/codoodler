@@ -184,6 +184,7 @@
 		
 		var changedData = document.getElementById('myText').value;
 				
+				
 		publish ({
 			name: changedData,
 			score: 5
