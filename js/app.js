@@ -5,6 +5,8 @@
 	var ctx = canvas.getContext('2d');
 	var color = document.querySelector(':checked').getAttribute('data-color');
 
+	var 
+	
 	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
 	//canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
 	canvas.width = 200;
@@ -30,7 +32,7 @@
 	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
 	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
-	canvas.addEventListener(downEvent, startDraw, false);
+	canvas.addEventListener(downEvent, sendData, false);//using to send first data through pubnub
 	canvas.addEventListener(moveEvent, draw, false);
 	canvas.addEventListener(upEvent, endDraw, false);
 
@@ -49,7 +51,7 @@
 
 	pubnub.subscribe({
 		channel: channel,
-		callback: drawFromStream,
+		callback: updateGraphData,
 		withPresence: true,
 		presence: function(m){
 			if(m.occupancy > 1){
@@ -57,10 +59,12 @@
 			}
    			document.getElementById('occupancy').textContent = m.occupancy;
    			
-			console.log(m.occupancy);
+			//console.log(m.occupancy);
 			var p = document.getElementById('occupancy').parentNode;
    			p.classList.add('anim');
    			p.addEventListener('transitionend', function(){p.classList.remove('anim');}, false);
+			
+			
    		}
 	});
 
@@ -72,8 +76,8 @@
 		
 		
 		//console.log("sending stuff to pubnub");
-		increment();
-		console.log("incrementing");
+		//increment();
+		//console.log("incrementing");
 		
 		//testdraw();
      }
@@ -98,7 +102,17 @@
 		
     }
 
-    function drawFromStream(message) {
+	function updateGraphData(message) { //called back by the substribe event.
+		
+			var changedName = currentData[5];
+	
+			changedName.name = message;
+	
+			currentData[5] = changedName;
+	}
+	
+	
+    function drawFromStream(message) {//used to be called back by subscribe
 		
 		if(!message || message.plots.length < 1) return;
 		drawOnCanvas(message.color, message.plots);
@@ -145,11 +159,15 @@
 	  	isActive = false;
 	  
 			  
-	  	publish({
-	  		color: color,
-	  		plots: plots
-	  	});
+	  	publish();
 
 	  	plots = [];
 	}
+	
+	function sendData(e) {//triggered by click
+		
+		publish ("Testname");
+		
+	}
+	
 })();
