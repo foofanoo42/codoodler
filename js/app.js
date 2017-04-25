@@ -106,7 +106,7 @@
 		
 			
 			
-			do(i = 0; i < currentData.length; i++)
+			for(i = 0; i < currentData.length; i++)
 			{
 				if (currentData[i].name === " "){//find the next empty data from the top
 					
