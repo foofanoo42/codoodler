@@ -31,7 +31,7 @@
 	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
 	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
-	canvas.addEventListener(downEvent, sendName, false);//using to send first data through pubnub
+	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub
 	canvas.addEventListener(moveEvent, draw, false);
 	canvas.addEventListener(upEvent, endDraw, false);
 
