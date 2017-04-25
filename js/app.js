@@ -31,7 +31,7 @@
 	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
 	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
-	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub
+	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub score and name
 	canvas.addEventListener(moveEvent, draw, false);
 	canvas.addEventListener(upEvent, endDraw, false);
 
@@ -115,7 +115,7 @@
 					changedName.name = message.name;
 					changedName.value = message.score;
 					currentData[i] = changedName;
-					i = currentData.length;
+					i = 100;//see if this helped when it updates
 					
 				}
 				
