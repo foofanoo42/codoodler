@@ -31,8 +31,8 @@
 
 		<p>Click Start</p>
 
-		<button onclick="sendName()">Start</button>
-		<button onclick="sendScoreName()">+ 5</button>
+		<button onclick="sendN()">Start</button>
+		<button onclick="sendSN()">+ 5</button>
 	</header>
 		
 	
@@ -72,6 +72,8 @@ var currentData = [{key: "blah1", value:50, name:" "}, {key: "blah2", value:100,
 
 
 
+
+				  
 var changeName = function(){
 
 	var changedData = currentData[8];
@@ -81,6 +83,14 @@ var changeName = function(){
 	currentData[8] = changedData;
 	//console.log (currentData[8].name);
 	
+}
+
+var sendN = function(){
+	sendName();
+}
+
+var sendSN = function(){
+	 sendScoreName();
 }
 
 var addUserName = function(){//uses the number of subscribers written on the element to decide which bar to change name of.

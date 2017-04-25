@@ -102,13 +102,30 @@
 		
     }
 
-	function updateGraphData(message) { //called back by the substribe event.
+	function updateGraphData(message) { //called back by the subscribe event.
 		
-			var changedName = currentData[5];
+			
+			
+			do(i = 0; i < currentData.length; i++)
+			{
+				if (currentData[i].name === " "){//find the next empty data from the top
+					
+					var changedName = currentData[i];
+					changedName.name = message.name;
+					changedName.value += message.score;
+					currentData[i] = changedName;
+					i = currentData.length;
+					
+				}
+				
+				
+			}
+			
+			
 	
-			changedName.name = message.name;
+			//changedName.name = message.name;
 	
-			currentData[5] = changedName;
+			//currentData[5] = changedName;
 	}
 	
 	
