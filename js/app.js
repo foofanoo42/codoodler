@@ -105,7 +105,7 @@
 		
 			var changedName = currentData[5];
 	
-			changedName.name = message;
+			changedName.name = message.name;
 	
 			currentData[5] = changedName;
 	}
@@ -157,8 +157,10 @@
 	  	e.preventDefault();
 	  	isActive = false;
 	  
-			  
-	  	publish();
+	  	publish({
+	  		color: color,
+	  		plots: plots
+	  	});
 
 	  	plots = [];
 	}
@@ -168,9 +170,12 @@
 		var changedData = "temp";
 	
 	
-		changedData.name = document.getElementById('myText').value;
+		//changedData.name = document.getElementById('myText').value;
 		
-		publish (changedData);
+		publish ({
+			name: changedData
+		}
+		
 		
 	}
 	
