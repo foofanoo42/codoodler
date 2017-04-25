@@ -31,7 +31,7 @@
 	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
 	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
-	canvas.addEventListener(downEvent, startDraw, false);//using to send first data through pubnub
+	canvas.addEventListener(downEvent, sendName, false);//using to send first data through pubnub
 	canvas.addEventListener(moveEvent, draw, false);
 	canvas.addEventListener(upEvent, endDraw, false);
 
@@ -106,14 +106,14 @@
 		
 			
 			
-			for(var i = 0; i < currentData.length; i++)
+			for(var i = 0; i < currentData.length; i++)//this loop not tested
 			{
 				if (currentData[i].name === " ")
 				{//find the next empty data from the top
 					
 					var changedName = currentData[i];
 					changedName.name = message.name;
-					changedName.value += message.score;
+					changedName.value = message.score;
 					currentData[i] = changedName;
 					i = currentData.length;
 					
