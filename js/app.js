@@ -165,8 +165,15 @@
 	
 	function sendData(e) {//triggered by click
 		
-		publish ("Testname");
+		var changedData = "temp";
+	
+	
+		changedData.name = document.getElementById('myText').value;
+		
+		publish (changedData);
 		
 	}
+	
+	
 	
 })();
