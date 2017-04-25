@@ -31,7 +31,7 @@
 	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
 	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
-	canvas.addEventListener(downEvent, sendData, false);//using to send first data through pubnub
+	canvas.addEventListener(downEvent, startDraw, false);//using to send first data through pubnub
 	canvas.addEventListener(moveEvent, draw, false);
 	canvas.addEventListener(upEvent, endDraw, false);
 
@@ -166,18 +166,28 @@
 	  	plots = [];
 	}
 	
-	function sendData(e) {//triggered by click
+	function sendName() {//triggered by click of OK button
 		
-		var changedData = "temp";
-	
-	
+		var changedData = document.getElementById('myText').value;
+		
 		//changedData.name = document.getElementById('myText').value;
 		
 		publish ({
-			name: changedData
-		}
+			name: changedData,
+			score: 0
+		})
 		
 		
+	}
+	
+	function sendScoreName() {
+		
+		var changedData = document.getElementById('myText').value;
+				
+		publish ({
+			name: changedData,
+			score: 5
+		})
 	}
 	
 	
