@@ -82,7 +82,7 @@ var changeName = function(){
 	
 }
 
-var addUserName = function(){
+var addUserName = function(){//uses the number of subscribers written on the element to decide which bar to change name of.
 
 	var connectedNow = document.getElementById('occupancy').textContent;
 	
@@ -276,7 +276,6 @@ var redrawChart = function(targetID, newdata) {
 
 var dontPullData = function(settings){
 	
-	//var newValue = currentData.length * 30;
 	
 	var changedData = currentData[2];
 	var newValue = changedData.value + 10;
@@ -285,19 +284,14 @@ var dontPullData = function(settings){
 		//currentData[2].push({key: newValue, value: newValue});
 	currentData[2] = changedData;
 	
-	
-	
 	//format and send the currentData to the graph logic
 	var newData = currentData;
 		
+	newData = formatData(currentData);
 		
+	//console.log(newData.length);
 		
-		newData = formatData(currentData);
-		
-		//console.log(newData.length);
-		
-		
-		redrawChart(settings,newData);
+	redrawChart(settings,newData);
 }
 
 

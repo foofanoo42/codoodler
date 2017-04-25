@@ -99,6 +99,7 @@
 	    ctx.stroke();
 		
 		
+		
     }
 
 	function updateGraphData(message) { //called back by the substribe event.
