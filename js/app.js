@@ -106,9 +106,10 @@
 		
 			
 			
-			for(i = 0; i < currentData.length; i++)
+			for(var i = 0; i < currentData.length; i++)
 			{
-				if (currentData[i].name === " "){//find the next empty data from the top
+				if (currentData[i].name === " ")
+				{//find the next empty data from the top
 					
 					var changedName = currentData[i];
 					changedName.name = message.name;
