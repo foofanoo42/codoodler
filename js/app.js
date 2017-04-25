@@ -5,7 +5,6 @@
 	var ctx = canvas.getContext('2d');
 	var color = document.querySelector(':checked').getAttribute('data-color');
 
-	var 
 	
 	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
 	//canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
