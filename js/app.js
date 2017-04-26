@@ -200,6 +200,7 @@
 	
 	function sendScoreName() {
 		
+		console.log("sending score publish");
 		var changedData = document.getElementById('myText').value;
 				
 				
