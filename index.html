@@ -10,6 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<script src="js/d3.v3.min.js" charset="utf-8"></script>
+	<script src="js/randomColor.min.js"></script>
 	
 	
 	<link rel="stylesheet" href="css/style.css">
@@ -19,15 +20,19 @@
 
 <body>
 	<header>
+		
 		<div>
-			<h1> </h1>
-			<h2>Enter your name:</h2>
-		</div>
-		<div class="bubble">
+			<h1>Multi-User Scorekeeper </h1>
+			<h2> </h2>
+			
+			<div class="bubble">
 			<span id="occupancy">0</span>
-			<span id="unit">connected</span>
+			<span id="unit">players connected</span>
 		</div>
-		<input type="text" id="myText" value="Enter name...">
+		<p></p>
+		
+		</div>
+		<input type="text" id="myText" value="Enter your name...">
 		<input type="color" id="myColor"/>
 
 		<p>Click Start</p>
@@ -72,8 +77,11 @@ var currentData = [{key: "blah1", value:50, name:"1 "}, {key: "blah2", value:100
 
 
 
+document.getElementById('myColor').defaultValue = randomColor();
+var myStoredColor = document.getElementById('myColor').defaultValue;
 
 
+//need to change my stored color later if played adjusts it
 				  
 var changeName = function(){
 
@@ -250,6 +258,7 @@ var redrawChart = function(targetID, newdata) {
 	  
 	//Update data names each update *******************
 	chartRow.select(".category").text(function(d){return d.name});
+	  .style("fill", myStoredColor);
 
 	//Fade in categories
 	chartRow.select(".category").transition()
