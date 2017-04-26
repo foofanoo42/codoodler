@@ -106,25 +106,26 @@
 		
 			console.log("received message from pubnub: " + message.name + message.score);
 				
-		
-			for(var i = 0; i < currentData.length; i++)//this loop not tested
+			if(message.name != null)
 			{
-				
-				
-				if (currentData[i].name === " ")
-				{//find the next empty data from the top
-					
-					var changedName = currentData[i];
-					changedName.name = message.name;
-					changedName.value = message.score;
-					currentData[i] = changedName;
-					i = 100;//see if this helped when it updates
-					
+				for(var i = 0; i < currentData.length; i++)//this loop not tested
+				{
+
+
+					if (currentData[i].name === " ")
+					{//find the next empty data from the top
+
+						var changedName = currentData[i];
+						changedName.name = message.name;
+						changedName.value = message.score;
+						currentData[i] = changedName;
+						i = 100;//see if this helped when it updates
+
+					}
+
+
 				}
-				
-				
 			}
-			
 			//changedName.name = message.name;
 	
 			//currentData[5] = changedName;
