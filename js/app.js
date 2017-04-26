@@ -3,7 +3,7 @@
 
 	var canvas = document.getElementById('drawCanvas');
 	var ctx = canvas.getContext('2d');
-	var color = document.querySelector(':checked').getAttribute('data-color');
+	//var color = document.querySelector(':checked').getAttribute('data-color');
 
 	
 	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
@@ -13,23 +13,25 @@
 		
 	ctx.arc(95,50,40,0,2*Math.PI); 
 	
-	ctx.strokeStyle = color;
-	ctx.lineWidth = '3';
-	ctx.lineCap = ctx.lineJoin = 'round';
+	//ctx.strokeStyle = color;
+	//ctx.lineWidth = '3';
+	//ctx.lineCap = ctx.lineJoin = 'round';
 
 	/* Mouse and touch events */
 	
+	/*
 	document.getElementById('colorSwatch').addEventListener('click', function() {
 		color = document.querySelector(':checked').getAttribute('data-color');
 	}, false);
+	*/
 	
 	var isTouchSupported = 'ontouchstart' in window;
 	var isPointerSupported = navigator.pointerEnabled;
 	var isMSPointerSupported =  navigator.msPointerEnabled;
 	
 	var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
-	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
-	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
+	//var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
+	//var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
 	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub score and name
 	//canvas.addEventListener(moveEvent, draw, false);
@@ -129,7 +131,7 @@
 			//currentData[5] = changedName;
 	}
 	
-	
+	/*
     function drawFromStream(message) {//used to be called back by subscribe
 		
 		if(!message || message.plots.length < 1) return;
@@ -146,9 +148,11 @@
 	    		pubnub.each( messages[0], drawFromStream );
 	    	}
 	    });
-	}
+	}*/
     var isActive = false;
-    var plots = [];
+    
+	/*
+	var plots = [];
 
 	function draw(e) {
 		e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
@@ -183,6 +187,7 @@
 
 	  	plots = [];
 	}
+	*/
 	
 	function sendName() {//triggered by click of OK button
 		
