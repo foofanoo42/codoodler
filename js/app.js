@@ -4,7 +4,7 @@
 	var canvas = document.getElementById('drawCanvas');
 	var ctx = canvas.getContext('2d');
 	var color = document.querySelector(':checked').getAttribute('data-color');
-
+	var currentmessage = false;
 	
 	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
 	//canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
@@ -104,10 +104,13 @@
 
 	function updateGraphData(message) { //called back by the subscribe event.
 		
-			console.log("received message from pubnub: " + message);
-			
+			console.log("received message from pubnub: " + message.name + message.score);
+				
+		
 			for(var i = 0; i < currentData.length; i++)//this loop not tested
 			{
+				
+				
 				if (currentData[i].name === " ")
 				{//find the next empty data from the top
 					
@@ -122,8 +125,6 @@
 				
 			}
 			
-			
-	
 			//changedName.name = message.name;
 	
 			//currentData[5] = changedName;
