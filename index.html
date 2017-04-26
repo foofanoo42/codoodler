@@ -261,7 +261,7 @@ var redrawChart = function(targetID, newdata) {
 	chartRow.select(".category").text(function(d){return d.name})
 
 	chartRow.select(".bar").style("fill", function(d){
-		if(d.name === "1 ") return myStoredColor;
+		if(d.name === myStoredName) return myStoredColor;
 		else return "LightGrey";
 		});
 
