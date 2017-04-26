@@ -104,7 +104,7 @@
 
 	function updateGraphData(message) { //called back by the subscribe event.
 		
-			
+			console.log("received message from pubnub: " + message);
 			
 			for(var i = 0; i < currentData.length; i++)//this loop not tested
 			{
