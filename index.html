@@ -37,8 +37,8 @@
 
 		<p>Click Start</p>
 
-		<button onclick="changeName()">Start</button>
-		<button onclick="changeName()">+ 5</button>
+		<button id="nameButton" onclick="changeName()">Start</button>
+		<button id="fiveButton" onclick="changeName()">+ 5</button>
 	</header>
 		
 	
@@ -93,14 +93,6 @@ var changeName = function(){
 	currentData[8] = changedData;
 	//console.log (currentData[8].name);
 	
-}
-
-var sendN = function(){
-	sendName();
-}
-
-var sendSN = function(){
-	 sendScoreName();
 }
 
 var addUserName = function(){//uses the number of subscribers written on the element to decide which bar to change name of.
