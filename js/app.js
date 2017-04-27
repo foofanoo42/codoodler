@@ -11,7 +11,12 @@
 	canvas.width = 200;
 	canvas.height = 100;
 		
-	ctx.arc(95,50,40,0,2*Math.PI); 
+	//ctx.arc(95,50,40,0,2*Math.PI); 
+	
+	//set up buttons
+	document.getElementById('nameButton').onclick = "sendName()";
+	document.getElementById('fiveButton').onclick = "sendScoreName()";
+	
 	
 	//ctx.strokeStyle = color;
 	//ctx.lineWidth = '3';
