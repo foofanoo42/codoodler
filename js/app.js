@@ -38,6 +38,7 @@
 	 	  
 	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub score and name
 	nameButton.addEventListener(downEvent, sendName, false);
+	fiveButton.addEventListener(downEvent, sendScoreName, false);
 	
 	//canvas.addEventListener(moveEvent, draw, false);
 	//canvas.addEventListener(upEvent, endDraw, false);
@@ -112,23 +113,43 @@
 	function updateGraphData(message) { //called back by the subscribe event.
 		
 			
-			
+		
 			for(var i = 0; i < currentData.length; i++)//this loop not tested
 			{
-				if (currentData[i].name === " ")
+				if (currentData[i].name === myStoredName)//look for my name
 				{//find the next empty data from the top
 					
 					var changedName = currentData[i];
-					changedName.name = message.name;
+					//changedName.name = message.name;
 					changedName.value = message.score;
 					currentData[i] = changedName;
-					i = 100;//see if this helped when it updates
+					i = 100;//quit loop
+					myNameGraphed = true;//just if it wasn't flagged, it's already there - reconnecting?
 					
 				}
 				
-				
+				if (i === currentData.length) myNameGraphed = false; //couldn't find the name, place it on a space
 			}
 			
+			if(myNameGraphed === false;)//place it on a space
+			{
+			
+				for(var i = 0; i < currentData.length; i++)//this loop not tested
+				{
+					if (currentData[i].name === " ")
+					{//find the next empty data from the top
+						
+						var changedName = currentData[i];
+						changedName.name = message.name;
+						changedName.value = message.score;
+						currentData[i] = changedName;
+						i = 100;//quit loop
+						myNameGraphed = true;
+						
+					}
+					
+				}
+			}
 			
 	
 			//changedName.name = message.name;
@@ -197,12 +218,13 @@
 	function sendName() {//triggered by click of OK button
 		
 		var changedData = document.getElementById('myText').value;
+		myStoredName = document.getElementById('myText').value;
 		
 		//changedData.name = document.getElementById('myText').value;
 		
 		publish ({
 			name: changedData,
-			score: 0
+			score: mySavedScore
 		});
 		
 		
@@ -211,11 +233,12 @@
 	function sendScoreName() {
 		
 		var changedData = document.getElementById('myText').value;
+		mySavedScore += 5;
 				
 				
 		publish ({
 			name: changedData,
-			score: 5
+			score: mySavedScore
 		});
 	}
 	
