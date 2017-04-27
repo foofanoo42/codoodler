@@ -131,7 +131,7 @@
 				if (i === currentData.length) myNameGraphed = false; //couldn't find the name, place it on a space
 			}
 			
-			if(myNameGraphed === false;)//place it on a space
+			if(myNameGraphed === false)//place it on a space
 			{
 			
 				for(var i = 0; i < currentData.length; i++)//this loop not tested
