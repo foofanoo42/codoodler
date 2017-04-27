@@ -3,7 +3,10 @@
 
 	var canvas = document.getElementById('drawCanvas');
 	var ctx = canvas.getContext('2d');
+	var nameButton = document.getElementById('nameButton');
+	
 	//var color = document.querySelector(':checked').getAttribute('data-color');
+	
 
 	
 	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
@@ -12,11 +15,6 @@
 	canvas.height = 100;
 		
 	//ctx.arc(95,50,40,0,2*Math.PI); 
-	
-	//set up buttons
-	document.getElementById('nameButton').addEventListener('click', sendName(), false);
-	document.getElementById('fiveButton').addEventListener('click', sendScoreName(), false);
-	
 	
 	//ctx.strokeStyle = color;
 	//ctx.lineWidth = '3';
@@ -39,6 +37,8 @@
 	//var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
 	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub score and name
+	nameButton.addEventListener(downEvent, sendName, false);
+	
 	//canvas.addEventListener(moveEvent, draw, false);
 	//canvas.addEventListener(upEvent, endDraw, false);
 
