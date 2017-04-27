@@ -14,8 +14,8 @@
 	//ctx.arc(95,50,40,0,2*Math.PI); 
 	
 	//set up buttons
-	document.getElementById('nameButton').onclick = "sendName()";
-	document.getElementById('fiveButton').onclick = "sendScoreName()";
+	document.getElementById('nameButton').addEventListener('click', sendName(), false);
+	document.getElementById('fiveButton').addEventListener('click', sendScoreName(), false);
 	
 	
 	//ctx.strokeStyle = color;
