@@ -1,4 +1,4 @@
-(function() {
+
 	/* Canvas */
 
 	var canvas = document.getElementById('drawCanvas');
@@ -221,4 +221,3 @@
 	
 	
 	
-})();
