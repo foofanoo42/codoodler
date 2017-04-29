@@ -227,6 +227,8 @@
 			score: mySavedScore
 		});
 		
+		redraw(settings);
+		
 		
 	}
 	
@@ -240,6 +242,8 @@
 			name: changedData,
 			score: mySavedScore
 		});
+		
+		redraw(settings);
 	}
 	
 	
