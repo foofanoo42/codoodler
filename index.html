@@ -261,7 +261,7 @@ var redrawChart = function(targetID, newdata) {
 
 	chartRow.select(".bar").style("fill", function(d){
 		if(d.name === myStoredName) return mySavedColor;
-		else return d.name;
+		else return d.color;
 		});
 
 	//Fade in categories
