@@ -124,6 +124,7 @@
 					changedName.value = message.score;
 					changedName.color = message.color;
 					currentData[i] = changedName;
+					foundName = true;
 					i = 100;//quit loop
 					
 					
