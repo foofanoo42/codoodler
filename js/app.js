@@ -217,14 +217,16 @@
 	
 	function sendName() {//triggered by click of OK button
 		
-		var changedData = document.getElementById('myText').value;
+		//var changedData = document.getElementById('myText').value;
 		myStoredName = document.getElementById('myText').value;
+		mySavedColor = document.getElementById('myColor').value;
 		
 		//changedData.name = document.getElementById('myText').value;
 		
 		publish ({
-			name: changedData,
-			score: mySavedScore
+			name: myStoredName,
+			score: mySavedScore,
+			color: mySavedColor
 		});
 		
 		redraw(settings);
@@ -234,13 +236,14 @@
 	
 	function sendScoreName() {
 		
-		var changedData = document.getElementById('myText').value;
+		//var changedData = document.getElementById('myText').value;
 		mySavedScore += 5;
 				
 				
 		publish ({
-			name: changedData,
-			score: mySavedScore
+			name: myStoredName,
+			score: mySavedScore,
+			color: mySavedColor
 		});
 		
 		redraw(settings);
