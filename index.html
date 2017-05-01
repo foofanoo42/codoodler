@@ -77,7 +77,7 @@ var currentData = [{key: "blah1", value:50, name:"1 "}, {key: "blah2", value:100
 
 
 document.getElementById('myColor').defaultValue = randomColor();
-var myStoredColor = document.getElementById('myColor').defaultValue;
+var mySavedColor = document.getElementById('myColor').defaultValue;
 var myStoredName = document.getElementById('myText').value;
 var myNameGraphed = false;
 var mySavedScore = 0;
@@ -257,7 +257,7 @@ var redrawChart = function(targetID, newdata) {
 	chartRow.select(".category").text(function(d){return d.name})
 
 	chartRow.select(".bar").style("fill", function(d){
-		if(d.name === myStoredName) return myStoredColor;
+		if(d.name === myStoredName) return mySavedColor;
 		else return "LightGrey";
 		});
 
