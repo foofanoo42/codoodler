@@ -112,26 +112,27 @@
 
 	function updateGraphData(message) { //called back by the subscribe event.
 		
-			
+			var foundName = false;
 		
-			for(var i = 0; i < currentData.length; i++)//this loop not tested
+			for(var i = 0; i < currentData.length; i++)
 			{
-				if (currentData[i].name === myStoredName)//look for my name
+				if (currentData[i].name === message.name)//look for my name
 				{//find the next empty data from the top
 					
 					var changedName = currentData[i];
 					//changedName.name = message.name;
 					changedName.value = message.score;
+					changedName.color = message.color;
 					currentData[i] = changedName;
 					i = 100;//quit loop
-					myNameGraphed = true;//just if it wasn't flagged, it's already there - reconnecting?
+					
 					
 				}
 				
-				if (i === currentData.length) myNameGraphed = false; //couldn't find the name, place it on a space
+				if (i === currentData.length) foundName = false; //couldn't find the name, place it on a space
 			}
 			
-			if(myNameGraphed === false)//place it on a space
+			if(foundName === false)//place it on a space
 			{
 			
 				for(var i = 0; i < currentData.length; i++)//this loop not tested
@@ -142,9 +143,10 @@
 						var changedName = currentData[i];
 						changedName.name = message.name;
 						changedName.value = message.score;
+						changedName.color = message.color;
 						currentData[i] = changedName;
 						i = 100;//quit loop
-						myNameGraphed = true;
+						
 						
 					}
 					
