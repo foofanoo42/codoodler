@@ -1,47 +1,25 @@
 (function() {
-	/* Canvas */
-
-	var canvas = document.getElementById('drawCanvas');
-	var ctx = canvas.getContext('2d');
+	
 	var nameButton = document.getElementById('nameButton');
+	var fiveButton = document.getElementById('nameButton');
 	
-	//var color = document.querySelector(':checked').getAttribute('data-color');
+//how to stop zoom and scroll?
 	
-
-	
-	//canvas.width = Math.min(document.documentElement.clientWidth, window.innerWidth || 300);
-	//canvas.height = Math.min(document.documentElement.clientHeight, window.innerHeight || 300);
-	canvas.width = 200;
-	canvas.height = 100;
-		
-	//ctx.arc(95,50,40,0,2*Math.PI); 
-	
-	//ctx.strokeStyle = color;
-	//ctx.lineWidth = '3';
-	//ctx.lineCap = ctx.lineJoin = 'round';
 
 	/* Mouse and touch events */
 	
-	/*
-	document.getElementById('colorSwatch').addEventListener('click', function() {
-		color = document.querySelector(':checked').getAttribute('data-color');
-	}, false);
-	*/
+	
 	
 	var isTouchSupported = 'ontouchstart' in window;
 	var isPointerSupported = navigator.pointerEnabled;
 	var isMSPointerSupported =  navigator.msPointerEnabled;
 	
 	var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
-	//var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
-	//var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));
 	 	  
-	canvas.addEventListener(downEvent, sendScoreName, false);//using to send first data through pubnub score and name
+	
 	nameButton.addEventListener(downEvent, sendName, false);
 	fiveButton.addEventListener(downEvent, sendScoreName, false);
 	
-	//canvas.addEventListener(moveEvent, draw, false);
-	//canvas.addEventListener(upEvent, endDraw, false);
 
 	/* PubNub */
 
@@ -83,33 +61,11 @@
 		
 		
 		//console.log("sending stuff to pubnub");
-		//increment();
-		//console.log("incrementing");
 		
-		//testdraw();
      }
 
-    /* Draw on canvas */
+    
 	
-	function testdraw(){
-		
-		//ctx.fillText('Hello world', 20, 0);
-	}
-
-    function drawOnCanvas(color, plots) {
-    	ctx.strokeStyle = color;
-		ctx.beginPath();
-		ctx.moveTo(plots[0].x, plots[0].y);
-
-    	for(var i=1; i<plots.length; i++) {
-	    	ctx.lineTo(plots[i].x, plots[i].y);
-	    }
-	    ctx.stroke();
-		
-		
-		
-    }
-
 	function updateGraphData(message) { //called back by the subscribe event.
 		
 			var foundName = false;
@@ -160,16 +116,11 @@
 			//currentData[5] = changedName;
 	}
 	
-	/*
-    function drawFromStream(message) {//used to be called back by subscribe
-		
-		if(!message || message.plots.length < 1) return;
-		drawOnCanvas(message.color, message.plots);
-		
-    }
+	
     
     // Get Older and Past Drawings!
-    if(drawHistory) {
+    /*
+	if(drawHistory) {
 	    pubnub.history({
 	    	channel  : channel,
 	    	count    : 50,
@@ -178,46 +129,9 @@
 	    	}
 	    });
 	}*/
-    var isActive = false;
+	
     
-	/*
-	var plots = [];
-
-	function draw(e) {
-		e.preventDefault(); // prevent continuous touch event process e.g. scrolling!
-	  	if(!isActive) return;
-
-    	var x = isTouchSupported ? (e.targetTouches[0].pageX - canvas.offsetLeft) : (e.offsetX || e.layerX - canvas.offsetLeft);
-    	var y = isTouchSupported ? (e.targetTouches[0].pageY - canvas.offsetTop) : (e.offsetY || e.layerY - canvas.offsetTop);
-
-    	plots.push({x: (x << 0), y: (y << 0)}); // round numbers for touch screens
-
-    	drawOnCanvas(color, plots);
-		//ctx.fillText('Hello world', 100, 100);
-		
-	}
-	
-	function startDraw(e) {
-	  	e.preventDefault();
-	  	
-		//isActive = true;
-		//turning off drawing from working this way
-		
-	}
-	
-	function endDraw(e) {
-	  	e.preventDefault();
-	  	isActive = false;
-	  
-	  	publish({
-	  		color: color,
-	  		plots: plots
-	  	});
-
-	  	plots = [];
-	}
-	*/
-	
+    	
 	function sendName() {//triggered by click of OK button
 		
 		//var changedData = document.getElementById('myText').value;
