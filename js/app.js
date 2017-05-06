@@ -155,6 +155,7 @@
 		
 		//var changedData = document.getElementById('myText').value;
 		mySavedScore += 5;
+		document.getElementById('qty').value = mySavedScore;
 				
 				
 		publish ({
