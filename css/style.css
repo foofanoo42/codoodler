@@ -57,3 +57,107 @@ text.category{
 	fill: #666666;
 	font-size: 14px;
 }
+
+
+input {
+	font-size: 2.4em;
+	background-color: transparent;
+	text-align: center;
+	border-width: 0;
+	width: 100%;
+	margin: 0 0 .1em 0;
+	color: #fff;
+}
+
+#myColor {
+
+	height: 40px;
+	width: 50%;
+	
+}
+
+#name{
+	
+	font-size: 2.0em;
+}
+
+label {
+	display: block;
+	font-size: 0.9em;
+}
+
+.button {        
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #ccc;
+    background-image: linear-gradient(top, #eee, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    padding: 0 1.5em;
+    margin: 0.5em;
+    font: bold 1em/2em Arial, Helvetica;
+    text-decoration: none;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    border-radius: .2em;
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.button:hover {
+    background-color: #ddd;        
+    background-image: linear-gradient(top, #fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');        
+}
+
+.button:active {
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;
+}
+
+.button:focus {
+    outline: 0;
+    background: #fafafa;
+}    
+
+.button:before {
+    background: #ccc;
+    background: rgba(0,0,0,.1);
+    float: left;        
+    width: 1em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;        
+}
+
+.add:before {
+    content: "\271A";
+	font-size: 2.0 em;
+}
+
+.subtract:before {
+    content: "\2212";
+}
+
+.box {
+	/* basics */
+	background-color: #444;
+	color: #C4BE92;
+    text-align: center;
+
+	/* rounded corners */
+    -webkit-border-radius: 12px;
+    border-radius: 12px; 
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+    padding: .8em .8em 1em;
+    width: 80%;
+	margin: 0 auto;	
+  	-webkit-box-shadow: 0px 0px 12px 0px #000;
+    box-shadow: 0px 0px 12px 0px #000;
+  
+}
+

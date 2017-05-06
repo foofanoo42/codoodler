@@ -19,32 +19,34 @@
 </head>
 
 <body>
-	<header>
-		
-		<div>
-			<h1>Multi-User Scorekeeper </h1>
-			<h2> </h2>
-			
-			<div class="bubble">
-			<span id="occupancy">0</span>
-			<span id="unit">players connected</span>
-		</div>
-		<p></p>
-		
-		</div>
-		<input type="text" id="myText" value="Enter your name...">
-		<input type="color" id="myColor"/>
+	
+	<div class="box">   
 
-		<p>Click Start</p>
-
-		<button id="nameButton" >>Start</button>
-		<button id="fiveButton" >+ 5</button>
-	</header>
+	<label for="name">Name</label>
+	<input id="name" value="Enter name..."/>
+	
+	<label for="myColor">Color</label>
+	<input id="myColor" type="color" />
+	
+	<label for="qty">Score</label>
+	<input id="qty" value="0" disabled />
+	
+	
+	<button id="mybutton2" class="button subtract" onclick="decrement()"></button>
+	<button id="mybutton" class="button add" onclick="increment()"></button>
+	</div>
+	
+	
+	<div>
+		<h1>Multi-User Scorekeeper </h1>
+		<h2> </h2>
 		
+		<span id="occupancy">0</span>
+		<span id="unit">players connected</span>
 	
+	<p></p>
 	
-	
-	
+	</div>
 	
 	<div id="everything">
 		
@@ -70,7 +72,7 @@ var currentData = [{key: "blah1", value:50, name:"1 ", color:"GAINSBORO"}, {key:
 
 document.getElementById('myColor').defaultValue = randomColor();
 var mySavedColor = document.getElementById('myColor').defaultValue;
-var myStoredName = document.getElementById('myText').value;
+var myStoredName = document.getElementById('name').value;
 var myNameGraphed = false;
 var mySavedScore = 0;
 //need to change my stored color and name later if played adjusts it

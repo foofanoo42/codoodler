@@ -1,7 +1,7 @@
 (function() {
 	
 	var nameButton = document.getElementById('nameButton');
-	var fiveButton = document.getElementById('nameButton');
+	var fiveButton = document.getElementById('fiveButton');
 	
 //how to stop zoom and scroll?
 	
