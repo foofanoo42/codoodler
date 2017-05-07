@@ -18,7 +18,7 @@
 	var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
 	 	  
 	
-	nameInput.addEventListener(keydown, sendName, false);
+	nameInput.addEventListener("keydown", sendName, false);
 	increaseButton.addEventListener(downEvent, increaseScore, false);
 	decreaseButton.addEventListener(downEvent, decreaseScore, false);
 	
