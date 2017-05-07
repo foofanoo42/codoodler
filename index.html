@@ -25,7 +25,7 @@
 	<div class="box">   
 
 	<label for="name">Name</label>
-	<input id="name" value="Enter name..."/>
+	<input id="name" value="Enter name..." onClick="this.select();" onkeydown="checkEnter()" />
 	
 	<label for="myColor">Color</label>
 	<input id="myColor" type="color" />
@@ -82,7 +82,12 @@ var mySavedScore = 0;
 //also need to add the colors of other players to the lookup
 				  
 
-
+var checkEnter = function() {
+    if(event.keyCode == 13) {
+        alert("should get the innerHTML or text value here");
+		document.getElementById('name')..readOnly = true;
+    }
+}
 				  
 var changeName = function(){
 
