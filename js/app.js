@@ -1,7 +1,8 @@
 (function() {
 	
-	var nameButton = document.getElementById('mybutton');
-	var fiveButton = document.getElementById('mybutton2');
+	var increaseButton = document.getElementById('mybutton');
+	var decreaseButton = document.getElementById('mybutton2');
+	var nameInput = document.getElementById('name');
 	
 //how to stop zoom and scroll?
 	
@@ -17,8 +18,9 @@
 	var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
 	 	  
 	
-	nameButton.addEventListener(downEvent, sendName, false);
-	fiveButton.addEventListener(downEvent, sendScoreName, false);
+	nameInput.addEventListener(keydown, sendName, false);
+	increaseButton.addEventListener(downEvent, increaseScore, false);
+	decreaseButton.addEventListener(downEvent, decreaseScore, false);
 	
 
 	/* PubNub */
@@ -62,7 +64,7 @@
 		
 		//console.log("sending stuff to pubnub");
 		
-     }
+    }
 
     
 	
@@ -134,12 +136,35 @@
     	
 	function sendName() {//triggered by click of OK button
 		
+		if(event.keyCode == 13) 
+		{				
+			document.getElementById('name').readOnly = true;
+
+			myStoredName = document.getElementById('name').value;
+			mySavedColor = document.getElementById('myColor').value;
+			
+			publish ({
+				name: myStoredName,
+				score: mySavedScore,
+				color: mySavedColor
+			});
+			
+			redraw(settings);
+		}
+		
+	}
+	
+	function decreaseScore() {
+		
 		//var changedData = document.getElementById('myText').value;
-		myStoredName = document.getElementById('myText').value;
-		mySavedColor = document.getElementById('myColor').value;
+		mySavedScore -= 5;
+		if(mySavedScore <0) mySavedScore = 0;
 		
-		//changedData.name = document.getElementById('myText').value;
+		document.getElementById('qty').value = mySavedScore;
 		
+		mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
+				
+				
 		publish ({
 			name: myStoredName,
 			score: mySavedScore,
@@ -147,15 +172,15 @@
 		});
 		
 		redraw(settings);
-		
-		
 	}
 	
-	function sendScoreName() {
+	function increaseScore() {
 		
 		//var changedData = document.getElementById('myText').value;
 		mySavedScore += 5;
 		document.getElementById('qty').value = mySavedScore;
+		
+		mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
 				
 				
 		publish ({

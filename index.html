@@ -25,7 +25,7 @@
 	<div class="box">   
 
 	<label for="name">Name</label>
-	<input id="name" value="Enter name..." onClick="this.select();" onkeydown="checkEnter()" />
+	<input id="name" value="Enter name..." onClick="this.select();" />//enter event bound in app.js
 	
 	<label for="myColor">Color</label>
 	<input id="myColor" type="color" />
@@ -39,9 +39,7 @@
 	</div>
 	
 	
-	<div>
-		<h1>Multi-User Scorekeeper </h1>
-		<h2> </h2>
+	<div style="margin: auto; text-align: center;">
 		
 		<span id="occupancy">0</span>
 		<span id="unit">players connected</span>
@@ -82,12 +80,7 @@ var mySavedScore = 0;
 //also need to add the colors of other players to the lookup
 				  
 
-var checkEnter = function() {
-    if(event.keyCode == 13) {
-        alert("should get the innerHTML or text value here");
-		document.getElementById('name').readOnly = true;
-    }
-}
+
 				  
 var changeName = function(){
 
@@ -99,7 +92,7 @@ var changeName = function(){
 	//console.log (currentData[8].name);
 	
 }
-
+/*
 var addUserName = function(){//uses the number of subscribers written on the element to decide which bar to change name of.
 
 	var connectedNow = document.getElementById('occupancy').textContent;
@@ -108,7 +101,7 @@ var addUserName = function(){//uses the number of subscribers written on the ele
 	var changedData = currentData[+connectedNow];
 	//var changedData = currentData[2];
 	
-	changedData.name = document.getElementById('myText').value;
+	changedData.name = document.getElementById('name').value;
 	
 	currentData[+connectedNow] = changedData;
 	//currentData[2] = changedData;
@@ -131,7 +124,7 @@ var increment = function(){
 	
 	//by making the values have the same key, they format nicely down to from 10
 
-}
+}*/
 
 				   
 				   
