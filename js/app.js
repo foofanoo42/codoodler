@@ -138,8 +138,8 @@
 		
 		if(event.keyCode == 192) 
 		{				
-			document.getElementById('box').style.visibility = "hidden";
-
+			document.getElementById('box').style.display = "none";
+			
 			redraw(settings);
 		}
 		
