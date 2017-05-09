@@ -136,6 +136,13 @@
     	
 	function sendName() {//triggered by click of OK button
 		
+		if(event.keyCode == 192) 
+		{				
+			document.getElementById('box').style.visibility = "hidden";
+
+			redraw(settings);
+		}
+		
 		if(event.keyCode == 13) 
 		{				
 			document.getElementById('name').readOnly = true;
