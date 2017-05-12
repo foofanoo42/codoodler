@@ -39,11 +39,16 @@ h2 {
 #everything{
 	width:600px;
 	margin:20px;
+	display: "none";
 }
 #chart{
 	width:600px;
 	height:400px;
+
+
+
 }
+
 .bar{
 	fill:#eaeaea;
 }
@@ -161,7 +166,5 @@ label {
   
 }
 
-#everything {
-	display: "none";
-}
+
 
