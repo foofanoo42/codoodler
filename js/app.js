@@ -16,11 +16,17 @@
 	var isMSPointerSupported =  navigator.msPointerEnabled;
 	
 	var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
-	 	  
+	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
+	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));	  
 	
 	nameInput.addEventListener("keydown", sendName, false);
 	increaseButton.addEventListener(downEvent, increaseScore, false);
 	decreaseButton.addEventListener(downEvent, decreaseScore, false);
+	
+	//stop double clicking and scrolling?
+	increaseButton.addEventListener(moveEvent, donothing, false);
+	increaseButton.addEventListener(upEvent, donothing, false);
+	
 	
 
 	/* PubNub */
@@ -66,7 +72,7 @@
 		
     }
 
-    
+	function donothing() {}
 	
 	function updateGraphData(message) { //called back by the subscribe event.
 		
@@ -138,7 +144,7 @@
 		
 		if(event.keyCode == 192) 
 		{				
-			document.getElementById('box').style.display = "none";
+			document.getElementById('box').style.display = "none";//block to replace it
 			
 			redraw(settings);
 		}
