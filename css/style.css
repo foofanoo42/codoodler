@@ -39,12 +39,12 @@ h2 {
 #everything{
 	width:600px;
 	margin:20px;
-	display: "none";
+	
 }
 #chart{
 	width:600px;
 	height:400px;
-
+	display: none;
 
 
 }
