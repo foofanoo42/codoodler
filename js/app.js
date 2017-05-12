@@ -19,13 +19,13 @@
 	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
 	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));	  
 	
-	nameInput.addEventListener("keydown", sendName, false);
+	nameInput.addEventListener('keydown', sendName, false);
 	increaseButton.addEventListener(downEvent, increaseScore, false);
 	decreaseButton.addEventListener(downEvent, decreaseScore, false);
 	
 	//stop double clicking and scrolling?
-	increaseButton.addEventListener(moveEvent, donothing, false);
-	increaseButton.addEventListener(upEvent, donothing, false);
+	increaseButton.addEventListener('dblclick', donothing, false);
+	//increaseButton.addEventListener(upEvent, donothing, false);
 	
 	
 
@@ -72,7 +72,7 @@
 		
     }
 
-	function donothing() {}
+	function donothing() { console.log("double click stopped");}
 	
 	function updateGraphData(message) { //called back by the subscribe event.
 		
