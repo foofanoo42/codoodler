@@ -145,7 +145,7 @@
 		if(event.keyCode == 192) 
 		{				
 			document.getElementById('box').style.display = "none";//block to replace it
-			document.getElementById('chart').style.display = "block";
+			document.getElementById('chart').style.display = "block";//display: none; in #chart style
 			redraw(settings);
 		}
 		
