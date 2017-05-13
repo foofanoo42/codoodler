@@ -38,15 +38,13 @@ h2 {
 }
 #everything{
 	width:600px;
-	margin:20px;
-	
+	text-align: center;
+	margin: 0 auto;	
 }
 #chart{
 	width:600px;
 	height:400px;
-	
-
-
+	display: none;
 }
 
 .bar{
