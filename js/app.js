@@ -175,8 +175,13 @@
 	
 	function sendBlurName() {//triggered by leaving the input field, equivalent to pressing enter but only if something new written
 		
-		console.log("blurred");
-		if(new String("Enter name...").equals(document.getElementById('name').value))
+		//console.log("blurred");
+		
+		String checkname = null;
+		checkname = document.getElementById('name').value;
+		
+		
+		if(checkname.equals("Enter name..."))
 		{				
 			
 			document.getElementById('name').readOnly = true;
