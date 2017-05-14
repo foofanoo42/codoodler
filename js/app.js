@@ -152,7 +152,7 @@
 			
 		}
 		
-		if(event.keyCode == 13)//enter 
+		if(event.keyCode == 13)//enter , use the checkname thing too?
 		{				
 			document.getElementById('name').readOnly = true;
 
@@ -177,7 +177,7 @@
 		
 		//console.log("blurred");
 		
-		String checkname = null;
+		var checkname = "";
 		checkname = document.getElementById('name').value;
 		
 		
