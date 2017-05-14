@@ -171,8 +171,9 @@
 	function sendBlurName() {//triggered by leaving the input field, equivalent to pressing enter but only if something new written
 		
 		
-		if(document.getElementById('name').value != "Enter your name...") 
+		if(document.getElementById('name').value != "Enter name...") 
 		{				
+			
 			document.getElementById('name').readOnly = true;
 
 			myStoredName = document.getElementById('name').value;
