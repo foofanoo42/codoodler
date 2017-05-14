@@ -16,15 +16,16 @@
 	var isMSPointerSupported =  navigator.msPointerEnabled;
 	
 	var downEvent = isTouchSupported ? 'touchstart' : (isPointerSupported ? 'pointerdown' : (isMSPointerSupported ? 'MSPointerDown' : 'mousedown'));
-	var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
-	var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));	  
+	//var moveEvent = isTouchSupported ? 'touchmove' : (isPointerSupported ? 'pointermove' : (isMSPointerSupported ? 'MSPointerMove' : 'mousemove'));
+	//var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));	  
 	
 	nameInput.addEventListener('keydown', sendName, false);
+	nameInput.addEventListener('onblur', sendBlurName, false);
 	increaseButton.addEventListener(downEvent, increaseScore, false);
 	decreaseButton.addEventListener(downEvent, decreaseScore, false);
 	
 	//stop double clicking and scrolling?
-	increaseButton.addEventListener('dblclick', donothing, false);
+	//increaseButton.addEventListener('dblclick', donothing, false);
 	//increaseButton.addEventListener(upEvent, donothing, false);
 	
 	
@@ -142,14 +143,35 @@
     	
 	function sendName() {//triggered by click of OK button
 		
-		if(event.keyCode == 192) 
+		if(event.keyCode == 192) //tilda, turns off the box and turns on the graph
 		{				
 			document.getElementById('box').style.display = "none";//block to replace it
 			document.getElementById('chart').style.display = "block";//display: none; in #chart style
 			redraw(settings);
 		}
 		
-		if(event.keyCode == 13) 
+		if(event.keyCode == 13)//enter 
+		{				
+			document.getElementById('name').readOnly = true;
+
+			myStoredName = document.getElementById('name').value;
+			mySavedColor = document.getElementById('myColor').value;
+			
+			publish ({
+				name: myStoredName,
+				score: mySavedScore,
+				color: mySavedColor
+			});
+			
+			redraw(settings);
+		}
+		
+	}
+	
+	function sendBlurName() {//triggered by leaving the input field, equivalent to pressing enter but only if something new written
+		
+		
+		if(document.getElementById('name').value != "Enter your name...") 
 		{				
 			document.getElementById('name').readOnly = true;
 
