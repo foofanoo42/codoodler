@@ -170,7 +170,7 @@
 	
 	function sendBlurName() {//triggered by leaving the input field, equivalent to pressing enter but only if something new written
 		
-		
+		console.log("blurred");
 		if(document.getElementById('name').value != "Enter name...") 
 		{				
 			
