@@ -20,7 +20,7 @@
 	//var upEvent = isTouchSupported ? 'touchend' : (isPointerSupported ? 'pointerup' : (isMSPointerSupported ? 'MSPointerUp' : 'mouseup'));	  
 	
 	nameInput.addEventListener('keydown', sendName, false);
-	nameInput.addEventListener('onblur', sendBlurName, false);
+	nameInput.addEventListener('blur', sendBlurName, false);
 	increaseButton.addEventListener(downEvent, increaseScore, false);
 	decreaseButton.addEventListener(downEvent, decreaseScore, false);
 	
