@@ -148,6 +148,9 @@
 			document.getElementById('box').style.display = "none";//block to replace it
 			document.getElementById('chart').style.display = "block";//display: none; in #chart style
 			redraw(settings);
+			
+			document.getElementById('mybutton').disabled = false;
+			document.getElementById('mybutton2').disabled = false;
 		}
 		
 		if(event.keyCode == 13)//enter 
@@ -171,7 +174,7 @@
 	function sendBlurName() {//triggered by leaving the input field, equivalent to pressing enter but only if something new written
 		
 		console.log("blurred");
-		if(document.getElementById('name').value != "Enter name...") 
+		if(new String("Enter name...").equals(document.getElementById('name').value))
 		{				
 			
 			document.getElementById('name').readOnly = true;
