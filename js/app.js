@@ -149,8 +149,7 @@
 			document.getElementById('chart').style.display = "block";//display: none; in #chart style
 			redraw(settings);
 			
-			document.getElementById('mybutton').disabled = false;
-			document.getElementById('mybutton2').disabled = false;
+			
 		}
 		
 		if(event.keyCode == 13)//enter 
@@ -159,6 +158,9 @@
 
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
+			
+			document.getElementById('mybutton').disabled = false;
+			document.getElementById('mybutton2').disabled = false;
 			
 			publish ({
 				name: myStoredName,
