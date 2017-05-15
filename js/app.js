@@ -161,8 +161,8 @@
 			
 			//document.getElementById('mybutton').disabled = false;
 			//document.getElementById('mybutton2').disabled = false;
-			document.getElementById('mybutton').style.display = "block";
-			document.getElementById('mybutton2').style.display = "block";
+			document.getElementById('mybutton').style.display = "inline";
+			document.getElementById('mybutton2').style.display = "inline";
 			
 			publish ({
 				name: myStoredName,
