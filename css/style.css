@@ -140,12 +140,14 @@ label {
 .add:before {
     content: "\271A";
 	font-size: 2.0 em;
+	display: none;
 
 	
 }
 
 .subtract:before {
     content: "\2212";
+	display: none;
 
 }
 
