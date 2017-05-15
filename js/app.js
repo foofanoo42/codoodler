@@ -177,11 +177,10 @@
 		
 		//console.log("blurred");
 		
-		var checkname = "";
-		checkname = document.getElementById('name').value;
 		
 		
-		if(checkname.equals("Enter name..."))
+		
+		if(document.getElementById('name').value === "Enter name...")
 		{				
 			
 			document.getElementById('name').readOnly = true;
