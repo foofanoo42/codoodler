@@ -152,15 +152,17 @@
 			
 		}
 		
-		if(event.keyCode == 13)//enter , use the checkname thing too?
+		if((event.keyCode == 13)&&!(document.getElementById('name').value === "Enter name..."))//enter , use the checkname thing too
 		{				
 			document.getElementById('name').readOnly = true;
 
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
-			document.getElementById('mybutton').disabled = false;
-			document.getElementById('mybutton2').disabled = false;
+			//document.getElementById('mybutton').disabled = false;
+			//document.getElementById('mybutton2').disabled = false;
+			document.getElementById('mybutton').style.display = "block";
+			document.getElementById('mybutton2').style.display = "block";
 			
 			publish ({
 				name: myStoredName,
@@ -187,6 +189,10 @@
 
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
+			
+			document.getElementById('mybutton').style.display = "block";
+			document.getElementById('mybutton2').style.display = "block";
+			
 			
 			publish ({
 				name: myStoredName,
