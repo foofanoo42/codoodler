@@ -180,7 +180,7 @@
 		
 		
 		
-		if(document.getElementById('name').value === "Enter name...")
+		if(!(document.getElementById('name').value === "Enter name..."))
 		{				
 			
 			document.getElementById('name').readOnly = true;
