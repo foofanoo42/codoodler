@@ -161,8 +161,8 @@
 			
 			//document.getElementById('mybutton').disabled = false;
 			//document.getElementById('mybutton2').disabled = false;
-			document.getElementById('mybutton').style.display = "inline";
-			document.getElementById('mybutton2').style.display = "inline";
+			document.getElementById('mybutton').style.visibility = "visible";
+			document.getElementById('mybutton2').style.visibility = "visible";
 			
 			publish ({
 				name: myStoredName,
@@ -190,9 +190,8 @@
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
-			document.getElementById('mybutton').style.display = "block";
-			document.getElementById('mybutton2').style.display = "block";
-			
+			document.getElementById('mybutton').style.visibility = "visible";
+			document.getElementById('mybutton2').style.visibility = "visible";
 			
 			publish ({
 				name: myStoredName,
