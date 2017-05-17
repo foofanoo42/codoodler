@@ -226,7 +226,7 @@ var redrawChart = function(targetID, newdata) {
 	  .attr("opacity",0)
 	  .attr("dy",".35em")
 	  .attr("dx","0.5em")
-	  .text(function(d){return d.name});//use names for category label instead of key as in example
+	  .text(function(d){return d.name})//use names for category label instead of key as in example
 	  .on("dblclick",function(d){resetScore(d.name)});
 
 
