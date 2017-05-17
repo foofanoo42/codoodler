@@ -152,15 +152,17 @@
 			
 		}
 		
-		if(event.keyCode == 13)//enter , use the checkname thing too?
+		if((event.keyCode == 13)&&!(document.getElementById('name').value === "Enter name..."))//enter , use the checkname thing too
 		{				
 			document.getElementById('name').readOnly = true;
 
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
-			document.getElementById('mybutton').disabled = false;
-			document.getElementById('mybutton2').disabled = false;
+			//document.getElementById('mybutton').disabled = false;
+			//document.getElementById('mybutton2').disabled = false;
+			document.getElementById('mybutton').style.visibility = "visible";
+			document.getElementById('mybutton2').style.visibility = "visible";
 			
 			publish ({
 				name: myStoredName,
@@ -177,11 +179,10 @@
 		
 		//console.log("blurred");
 		
-		var checkname = "";
-		checkname = document.getElementById('name').value;
 		
 		
-		if(checkname.equals("Enter name..."))
+		
+		if(!(document.getElementById('name').value === "Enter name..."))
 		{				
 			
 			document.getElementById('name').readOnly = true;
@@ -189,8 +190,13 @@
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
+<<<<<<< HEAD
 			document.getElementById('mybutton').disabled = false;
 			document.getElementById('mybutton2').disabled = false;
+=======
+			document.getElementById('mybutton').style.visibility = "visible";
+			document.getElementById('mybutton2').style.visibility = "visible";
+>>>>>>> dea3e14cecea9518d6e88b1ae1c35c49b2eafa33
 			
 			publish ({
 				name: myStoredName,
