@@ -83,7 +83,7 @@ var mySavedScore = 0;
 //also need to add the colors of other players to the lookup
 				  
 
-
+/*
 				  
 var changeName = function(){
 
@@ -95,7 +95,7 @@ var changeName = function(){
 	//console.log (currentData[8].name);
 	
 }
-/*
+
 var addUserName = function(){//uses the number of subscribers written on the element to decide which bar to change name of.
 
 	var connectedNow = document.getElementById('occupancy').textContent;
@@ -155,10 +155,6 @@ var setup = function(targetID){
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
 	
-	svg.on("click", function() {
-          changeName();
-		  //console.log("clicked mouse");
-        })
 	
 	//Package and export settings
 	var settings = {
@@ -328,6 +324,7 @@ var resetScore = function(resetName)
 					//changedName.name = message.name;
 					changedName.value = 0;
 					changedName.name = " ";
+					changedName.color = "GAINSBORO";
 					currentData[i] = changedName;
 					
 					i = 100;//quit loop
