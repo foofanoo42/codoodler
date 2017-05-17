@@ -159,10 +159,8 @@
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
-			//document.getElementById('mybutton').disabled = false;
-			//document.getElementById('mybutton2').disabled = false;
-			document.getElementById('mybutton').style.visibility = "visible";
-			document.getElementById('mybutton2').style.visibility = "visible";
+			document.getElementById('mybutton').disabled = false;
+			document.getElementById('mybutton2').disabled = false;
 			
 			publish ({
 				name: myStoredName,
@@ -190,13 +188,11 @@
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
-<<<<<<< HEAD
+
 			document.getElementById('mybutton').disabled = false;
 			document.getElementById('mybutton2').disabled = false;
-=======
-			document.getElementById('mybutton').style.visibility = "visible";
-			document.getElementById('mybutton2').style.visibility = "visible";
->>>>>>> dea3e14cecea9518d6e88b1ae1c35c49b2eafa33
+
+
 			
 			publish ({
 				name: myStoredName,
