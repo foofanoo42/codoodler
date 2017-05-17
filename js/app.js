@@ -208,7 +208,7 @@
 	function decreaseScore() {
 		
 		//var changedData = document.getElementById('myText').value;
-		mySavedScore -= 5;
+		mySavedScore -= 10;
 		if(mySavedScore <0) mySavedScore = 0;
 		
 		document.getElementById('qty').value = mySavedScore;
@@ -228,7 +228,7 @@
 	function increaseScore() {
 		
 		//var changedData = document.getElementById('myText').value;
-		mySavedScore += 5;
+		mySavedScore += 10;
 		document.getElementById('qty').value = mySavedScore;
 		
 		mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
