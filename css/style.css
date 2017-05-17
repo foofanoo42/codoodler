@@ -63,7 +63,7 @@ text.category{
 
 
 input {
-	font-size: 2.4em;
+	font-size: 3em;
 	background-color: transparent;
 	text-align: center;
 	border-width: 0;
@@ -161,6 +161,7 @@ label {
 
 .subtract:before {
     content: "\2212";
+	font-size: 2.0 em;
 
 }
 

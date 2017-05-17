@@ -227,6 +227,7 @@ var redrawChart = function(targetID, newdata) {
 	  .attr("dy",".35em")
 	  .attr("dx","0.5em")
 	  .text(function(d){return d.name});//use names for category label instead of key as in example
+	  .on("dblclick",function(d){resetScore(d.name)});
 
 
 	//////////
@@ -313,6 +314,31 @@ var dontPullData = function(settings){
 	redrawChart(settings,newData);
 }
 
+var resetScore = function(resetName)
+{
+	//this.remove();
+	alert("Removing player: " + resetName)
+	
+	for(var i = 0; i < currentData.length; i++)
+			{
+				if (currentData[i].name === resetName)//look for my name
+				{//find the next empty data from the top
+					
+					var changedName = currentData[i];
+					//changedName.name = message.name;
+					changedName.value = 0;
+					changedName.name = " ";
+					currentData[i] = changedName;
+					
+					i = 100;//quit loop
+					
+					
+				}
+				
+				if (i === currentData.length) foundName = false; //couldn't find the name, place it on a space
+			}
+	
+}
 
 //Sort data in descending order and take the top 10 values
 var formatData = function(data){
