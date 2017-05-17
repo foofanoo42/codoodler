@@ -121,7 +121,21 @@ label {
 .button:focus {
     outline: 0;
     background: #fafafa;
-}    
+}   
+
+.button[disabled], 
+.button[disabled]:hover, 
+.button.disabled, 
+.button.disabled:hover {
+    background: #eee;
+    color: #aaa;
+    border-color: #aaa;
+    cursor: default;
+    text-shadow: none;
+    position: static;
+    box-shadow: none;       
+}
+ 
 
 .button:before {
     background: #ccc;

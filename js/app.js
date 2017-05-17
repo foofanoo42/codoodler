@@ -189,6 +189,9 @@
 			myStoredName = document.getElementById('name').value;
 			mySavedColor = document.getElementById('myColor').value;
 			
+			document.getElementById('mybutton').disabled = false;
+			document.getElementById('mybutton2').disabled = false;
+			
 			publish ({
 				name: myStoredName,
 				score: mySavedScore,
