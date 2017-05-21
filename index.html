@@ -292,14 +292,14 @@ var redrawChart = function(targetID, newdata) {
 
 var dontPullData = function(settings){
 	
-	
+	/*
 	var changedData = currentData[5];
 	var newValue = changedData.value + 10;
 	changedData.value = newValue;
 	
-		//currentData[2].push({key: newValue, value: newValue});
+	//currentData[2].push({key: newValue, value: newValue});
 	currentData[5] = changedData;
-	
+	*/
 	//format and send the currentData to the graph logic
 	var newData = currentData;
 		
@@ -334,7 +334,6 @@ var resetScore = function(resetName)
 				
 				if (i === currentData.length) foundName = false; //couldn't find the name, place it on a space
 			}
-	
 }
 
 //Sort data in descending order and take the top 10 values
