@@ -151,9 +151,18 @@ var setup = function(targetID){
 	var svg = d3.select(targetID).append("svg")
 		.attr("width", width + margin.left + margin.right)
 		.attr("height", height + margin.top + margin.bottom)
-	  .append("g")
+		.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
+	//Outline
+	var borderPath = svg.append("rect")
+	  .attr("x", 0)
+	  .attr("y", 0)
+	  .attr("height", 400)
+	  .attr("width", 600)
+	  .style("stroke", "GAINSBORO")
+	  .style("fill", "none")
+	  .style("stroke-width", 1);
 	
 	
 	//Package and export settings
