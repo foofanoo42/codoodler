@@ -207,40 +207,46 @@
 	
 	function decreaseScore() {
 		
-		//var changedData = document.getElementById('myText').value;
-		mySavedScore -= 10;
-		if(mySavedScore <0) mySavedScore = 0;
-		
-		document.getElementById('qty').value = mySavedScore;
-		
-		mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
-				
-				
-		publish ({
-			name: myStoredName,
-			score: mySavedScore,
-			color: mySavedColor
-		});
-		
-		redraw(settings);
+		if(document.getElementById('mybutton').disabled === false)
+		{
+			//var changedData = document.getElementById('myText').value;
+			mySavedScore -= 10;
+			if(mySavedScore <0) mySavedScore = 0;
+
+			document.getElementById('qty').value = mySavedScore;
+
+			mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
+
+
+			publish ({
+				name: myStoredName,
+				score: mySavedScore,
+				color: mySavedColor
+			});
+
+			redraw(settings);
+		}
 	}
 	
 	function increaseScore() {
 		
-		//var changedData = document.getElementById('myText').value;
-		mySavedScore += 10;
-		document.getElementById('qty').value = mySavedScore;
-		
-		mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
-				
-				
-		publish ({
-			name: myStoredName,
-			score: mySavedScore,
-			color: mySavedColor
-		});
-		
-		redraw(settings);
+		if(document.getElementById('mybutton2').disabled === false)
+		{
+			//var changedData = document.getElementById('myText').value;
+			mySavedScore += 10;
+			document.getElementById('qty').value = mySavedScore;
+
+			mySavedColor = document.getElementById('myColor').value;//update color but name stays the same
+
+
+			publish ({
+				name: myStoredName,
+				score: mySavedScore,
+				color: mySavedColor
+			});
+
+			redraw(settings);
+		}
 	}
 	
 	
